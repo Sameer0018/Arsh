@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Arsh EV-Electric - Premium electric scooty spare parts, batteries, motors, controllers at wholesale prices. Based in Karol Bagh, New Delhi.">
+  <title>Arsh EV-Electric | Electric Scooty Spare Parts & Batteries</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f7f7;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    /* ================= HEADER ================= */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      font-size: 28px;
+      animation: pulse-icon 2s infinite;
+    }
+
+    @keyframes pulse-icon {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .brand-green { color: #0a8f3c; }
+    .brand-dark { color: #111; }
+
+    .nav {
+      display: flex;
+    }
+
+    .nav a {
+      margin: 0 18px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: #0a8f3c;
+      transition: 0.3s;
+    }
+
+    .nav a:hover {
+      color: #0a8f3c;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .phone {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #0a8f3c;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .phone:hover {
+      transform: scale(1.05);
+    }
+
+    .header-btn {
+      background: #0a8f3c;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .header-btn:hover {
+      background: #087a32;
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Menu */
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* ================= HERO BANNER SLIDER ================= */
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      max-height: 900px;
+      overflow: hidden;
+      margin-top: 70px;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Slides */
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Slide Background Image */
+    .slide-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1);
+      transition: transform 8s ease;
+    }
+
+    .slide.active .slide-bg {
+      transform: scale(1.1);
+    }
+
+    /* Slide Overlay */
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(10, 143, 60, 0.3) 100%
+      );
+    }
+
+    /* Slide Content */
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      width: 90%;
+      max-width: 900px;
+      z-index: 10;
+    }
+
+    .slide-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease 0.3s;
+    }
+
+    .slide.active .slide-badge {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-title {
+      font-size: 60px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease 0.5s;
+    }
+
+    .slide.active .slide-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-title span {
+      color: #4ade80;
+    }
+
+    .slide-description {
+      font-size: 20px;
+      font-weight: 300;
+      margin-bottom: 35px;
+      opacity: 0.9;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease 0.7s;
+    }
+
+    .slide.active .slide-description {
+      opacity: 0.9;
+      transform: translateY(0);
+    }
+
+    .slide-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease 0.9s;
+    }
+
+    .slide.active .slide-buttons {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-primary {
+      background: #0a8f3c;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      border: 2px solid #0a8f3c;
+    }
+
+    .btn-primary:hover {
+      background: #087a32;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(10, 143, 60, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #0a8f3c;
+      border-color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Slider Navigation Arrows */
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.3s ease;
+      color: white;
+      font-size: 24px;
+    }
+
+    .slider-nav:hover {
+      background: #0a8f3c;
+      border-color: #0a8f3c;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .slider-nav.prev {
+      left: 30px;
+    }
+
+    .slider-nav.next {
+      right: 30px;
+    }
+
+    /* Slider Dots */
+    .slider-dots {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .dot:hover {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .dot.active {
+      background: #0a8f3c;
+      border-color: white;
+      transform: scale(1.2);
+    }
+
+    /* Progress Bar */
+    .slider-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      z-index: 100;
+    }
+
+    .slider-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #0a8f3c, #4ade80);
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* Slide Counter */
+    .slide-counter {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slide-counter .current {
+      font-size: 36px;
+      color: #4ade80;
+    }
+
+    .slide-counter .total {
+      opacity: 0.6;
+    }
+
+    /* Decorative Elements */
+    .slide-decoration {
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      z-index: 5;
+    }
+
+    .slide-decoration-2 {
+      position: absolute;
+      top: -150px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      z-index: 5;
+    }
+
+    /* Scroll Down Indicator */
+    .scroll-down {
+      position: absolute;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.7;
+      transition: 0.3s;
+      z-index: 100;
+    }
+
+    .scroll-down:hover {
+      opacity: 1;
+      transform: translateX(-50%) translateY(5px);
+    }
+
+    .scroll-down span {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .scroll-down-icon {
+      width: 30px;
+      height: 50px;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    .scroll-down-icon::before {
+      content: "";
+      width: 6px;
+      height: 10px;
+      background: white;
+      border-radius: 3px;
+      animation: scroll-anim 2s infinite;
+    }
+
+    @keyframes scroll-anim {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(15px);
+        opacity: 0.3;
+      }
+    }
+
+    /* ================= FEATURES STRIP ================= */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      background: #ffffff;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      z-index: 10;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 30px 25px;
+      border-right: 1px solid #eee;
+      transition: 0.3s;
+    }
+
+    .feature-item:hover {
+      background: #f8fff8;
+    }
+
+    .feature-item:last-child {
+      border-right: none;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #e8f5e8, #d4edda);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .feature-item h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #111;
+    }
+
+    .feature-item p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+      padding: 80px 60px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 38px;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    .section-title span {
+      color: #0a8f3c;
+    }
+
+    .section-subtitle {
+      color: #666;
+      font-size: 17px;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ================= ABOUT ================= */
+    .about {
+      background: white;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: left;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .stat-box {
+      background: linear-gradient(135deg, #f8fff8, #e8f5e8);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      border: 2px solid #e8f5e8;
+      transition: 0.3s;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(10, 143, 60, 0.1);
+    }
+
+    .stat-box h3 {
+      font-size: 36px;
+      color: #0a8f3c;
+      margin-bottom: 5px;
+    }
+
+    .stat-box p {
+      font-size: 14px;
+      color: #666;
+      margin: 0;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+
+    .about-image::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: 20px;
+      bottom: 20px;
+      border: 3px solid #0a8f3c;
+      border-radius: 20px;
+      z-index: -1;
+    }
+
+    /* ================= PRODUCTS ================= */
+    .products {
+      background: #f7f7f7;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: 0.4s;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #ff6b35;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 1;
+    }
+
+    .product-badge.new {
+      background: #0a8f3c;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 25px;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .product-info p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price {
+      font-weight: 700;
+      color: #0a8f3c;
+      font-size: 20px;
+    }
+
+    .price small {
+      font-size: 13px;
+      color: #999;
+      text-decoration: line-through;
+      margin-left: 8px;
+      font-weight: 400;
+    }
+
+    .enquire-btn {
+      background: #0a8f3c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .enquire-btn:hover {
+      background: #087a32;
+      transform: scale(1.05);
+    }
+
+    /* ================= CONTACT ================= */
+    .contact {
+      background: white;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #f8f8f8, #ffffff);
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: #e8f5e8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .contact-item h4 {
+      font-size: 14px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .contact-item p, .contact-item a {
+      font-size: 16px;
+      color: #111;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: #0a8f3c;
+    }
+
+    /* ================= FOOTER ================= */
+    .footer {
+      background: linear-gradient(135deg, #111, #1a1a1a);
+      color: white;
+      padding: 40px 60px 25px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .footer p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .social-links a {
+      width: 45px;
+      height: 45px;
+      background: #222;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #0a8f3c;
+      transform: translateY(-5px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      margin-top: 25px;
+      padding-top: 20px;
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* ================= WHATSAPP FLOAT ================= */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 65px;
+      height: 65px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
+      z-index: 999;
+      animation: whatsapp-pulse 2s infinite;
+      transition: 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6);
+    }
+
+    @keyframes whatsapp-pulse {
+      0%, 100% {
+        box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
+      }
+      50% {
+        box-shadow: 0 5px 40px rgba(37, 211, 102, 0.8);
+      }
+    }
+
+    /* ================= BACK TO TOP ================= */
+    .back-to-top {
+      position: fixed;
+      bottom: 110px;
+      right: 35px;
+      width: 50px;
+      height: 50px;
+      background: #0a8f3c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      background: #087a32;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .hero-slider {
+        height: 80vh;
+      }
+
+      .slide-title {
+        font-size: 45px;
+      }
+
+      .slider-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+
+      .slider-nav.prev {
+        left: 15px;
+      }
+
+      .slider-nav.next {
+        right: 15px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-image::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px 20px;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        text-align: center;
+        display: none;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+
+      .nav a {
+        padding: 18px 0;
+        border-bottom: 1px solid #eee;
+        margin: 0;
+      }
+
+      #menu-toggle:checked + .menu-icon + .nav {
+        display: flex;
+      }
+
+      .header-right {
+        display: none;
+      }
+
+      .hero-slider {
+        height: 85vh;
+        margin-top: 65px;
+      }
+
+      .slide-badge {
+        font-size: 12px;
+        padding: 8px 18px;
+      }
+
+      .slide-title {
+        font-size: 32px;
+        line-height: 1.2;
+      }
+
+      .slide-description {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+
+      .slide-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary, .btn-secondary {
+        padding: 14px 30px;
+        font-size: 14px;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      .slider-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+      }
+
+      .slider-nav.prev {
+        left: 10px;
+      }
+
+      .slider-nav.next {
+        right: 10px;
+      }
+
+      .slide-counter {
+        display: none;
+      }
+
+      .scroll-down {
+        bottom: 80px;
+      }
+
+      .slider-dots {
+        bottom: 25px;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-box {
+        padding: 20px 15px;
+      }
+
+      .stat-box h3 {
+        font-size: 28px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        padding: 30px 20px 20px;
+      }
+
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 58px;
+        height: 58px;
+        font-size: 30px;
+      }
+
+      .back-to-top {
+        bottom: 90px;
+        right: 25px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slide-title {
+        font-size: 26px;
+      }
+
+      .slide-description {
+        font-size: 14px;
+      }
+
+      .feature-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 15px;
+      }
+
+      .slider-nav {
+        display: none;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="logo">
+    <span class="logo-icon">⚡</span>
+    <span class="brand-green">Arsh</span>
+    <span class="brand-dark">EV-ELECTRIC</span>
+  </div>
+
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-icon">☰</label>
+
+  <nav class="nav">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="header-right">
+    <a href="tel:+917210515929" class="phone">
+      <span>📞</span> 7210515929
+    </a>
+    <a href="https://wa.me/917210515929" class="header-btn" target="_blank">Get Quote</a>
+  </div>
+</header>
+
+<!-- Hero Banner Slider -->
+<section class="hero-slider" id="home">
+  <div class="slider-container">
+    
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-bg" style="background-image: url('https://www.evdiecast.com/public/images/banner-4.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-decoration"></div>
+      <div class="slide-decoration-2"></div>
+      <div class="slide-content">
+        <div class="slide-badge">⚡ Premium Quality EV Parts</div>
+        <h1 class="slide-title">All Electric Scooty<br><span>Spare Parts</span> Available</h1>
+        <p class="slide-description">High quality motors, controllers, batteries and all EV accessories at the best wholesale prices in Delhi.</p>
+        <div class="slide-buttons">
+          <a href="#products" class="btn-primary">🛒 View Products</a>
+          <a href="https://wa.me/917210515929?text=Hi, I'm interested in EV spare parts" class="btn-secondary" target="_blank">💬 WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('https://www.evdiecast.com/public/images/banner-5.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-decoration"></div>
+      <div class="slide-decoration-2"></div>
+      <div class="slide-content">
+        <div class="slide-badge">🔋 Long Life Batteries</div>
+        <h1 class="slide-title">High Capacity<br><span>Lithium Batteries</span></h1>
+        <p class="slide-description">Premium quality lithium and lead-acid batteries with 2-year warranty. Fast charging, long range performance.</p>
+        <div class="slide-buttons">
+          <a href="#products" class="btn-primary">🔋 Shop Batteries</a>
+          <a href="tel:+917210515929" class="btn-secondary">📞 Call Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('https://www.evdiecast.com/public/images/banner-6.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-decoration"></div>
+      <div class="slide-decoration-2"></div>
+      <div class="slide-content">
+        <div class="slide-badge">💰 Best Wholesale Prices</div>
+        <h1 class="slide-title">Dealer & Mechanic<br><span>Special Rates</span></h1>
+        <p class="slide-description">Become our dealer partner and get exclusive wholesale prices. Bulk orders welcome with free shipping across India.</p>
+        <div class="slide-buttons">
+          <a href="#contact" class="btn-primary">🤝 Become Dealer</a>
+          <a href="https://wa.me/917210515929?text=Hi, I want to become a dealer" class="btn-secondary" target="_blank">📋 Get Price List</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="slider-nav prev" onclick="changeSlide(-1)">❮</div>
+    <div class="slider-nav next" onclick="changeSlide(1)">❯</div>
+
+    <!-- Dots -->
+    <div class="slider-dots">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+      <span class="current">01</span>
+      <span>/</span>
+      <span class="total">03</span>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="slider-progress">
+      <div class="slider-progress-bar"></div>
+    </div>
+
+    <!-- Scroll Down -->
+    <a href="#features" class="scroll-down">
+      <span>Scroll Down</span>
+      <div class="scroll-down-icon"></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- Features Strip -->
+<section class="features" id="features">
+  <div class="feature-item">
+    <div class="feature-icon">🚚</div>
+    <div>
+      <h4>Free Shipping</h4>
+      <p>On orders over ₹999</p>
+    </div>
+  </div>
+
+  <div class="feature-item">
+    <div class="feature-icon">💰</div>
+    <div>
+      <h4>Money Return</h4>
+      <p>30 days money back</p>
+    </div>
+  </div>
+
+  <div class="feature-item">
+    <div class="feature-icon">📞</div>
+    <div>
+      <h4>Support 24/7</h4>
+      <p>+91 7210515929</p>
+    </div>
+  </div>
+
+  <div class="feature-item">
+    <div class="feature-icon">💳</div>
+    <div>
+      <h4>Safe Payment</h4>
+      <p>Secure online payment</p>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+  <h2 class="section-title">About <span>Us</span></h2>
+  <p class="section-subtitle">Your trusted partner for premium electric vehicle spare parts</p>
+  
+  <div class="about-content">
+    <div class="about-text">
+      <p>
+        <strong>Arsh EV-Electric</strong> is a leading supplier of electric scooty spare parts and batteries, 
+        based in Karol Bagh, New Delhi. With years of experience in the EV industry, we provide high-quality 
+        parts at competitive wholesale prices.
+      </p>
+      <p>
+        We deal in motors, controllers, batteries, brake systems, chargers, and all types of EV accessories. 
+        Our commitment to quality and customer satisfaction has made us the preferred choice for dealers 
+        and mechanics across India.
+      </p>
+      
+      <div class="about-stats">
+        <div class="stat-box">
+          <h3>500+</h3>
+          <p>Happy Dealers</p>
+        </div>
+        <div class="stat-box">
+          <h3>10K+</h3>
+          <p>Products Sold</p>
+        </div>
+        <div class="stat-box">
+          <h3>50+</h3>
+          <p>Product Types</p>
+        </div>
+        <div class="stat-box">
+          <h3>5+</h3>
+          <p>Years Experience</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=450&fit=crop" alt="Arsh EV Electric Shop" onerror="this.src='https://via.placeholder.com/600x450/0a8f3c/ffffff?text=Arsh+EV-Electric'">
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="products" id="products">
+  <h2 class="section-title">Our <span>Products</span></h2>
+  <p class="section-subtitle">Premium quality spare parts for all electric scooty brands</p>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <span class="product-badge">Hot</span>
+      <div class="product-image">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/368317642/YQ/HT/BJ/66690301/12-inch-electric-scooty-disc-motor-500x500.jpg" 
+             alt="Hub Motor for Electric Scooty" 
+             loading="lazy"
+             onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=Hub+Motor'">
+      </div>
+      <div class="product-info">
+        <h3>Hub Motor 12 Inch</h3>
+        <p>High torque BLDC motor, 500W</p>
+        <div class="product-footer">
+          <span class="price">₹7,500 <small>₹8,999</small></span>
+          <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Hub Motor 12 Inch" class="enquire-btn" target="_blank">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="product-badge new">New</span>
+      <div class="product-image">
+        <img src="https://m.media-amazon.com/images/I/41TqB1qwM4L.jpg" 
+             alt="EV Lithium Battery" 
+             loading="lazy"
+             onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=EV+Battery'">
+      </div>
+      <div class="product-info">
+        <h3>Lithium Battery 60V 30Ah</h3>
+        <p>Long life, fast charging</p>
+        <div class="product-footer">
+          <span class="price">₹18,000 <small>₹22,000</small></span>
+          <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Lithium Battery 60V 30Ah" class="enquire-btn" target="_blank">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2025/11/560672448/JE/NR/YE/151863905/28-1000x1000.png" 
+             alt="EV Controller" 
+             loading="lazy"
+             onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=Controller'">
+      </div>
+      <div class="product-info">
+        <h3>Controller 60V 35A</h3>
+        <p>Sine wave, heavy duty</p>
+        <div class="product-footer">
+          <span class="price">₹3,200 <small>₹3,999</small></span>
+          <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Controller 60V 35A" class="enquire-btn" target="_blank">Enquire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://electricscootersparts.in/wp-content/uploads/2025/03/48V-3AMP-Lead-Acid-Charger-1-600x364.jpeg" 
+             alt="EV Charger" 
+             loading="lazy"
+             onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=Charger'">
+      </div>
+      <div class="product-info">
+        <h3>Charger 48V 3A</h3>
+        <p>Lead acid compatible</p>
+        <div class="product-footer">
+          <span class="price">₹850 <small>₹1,100</small></span>
+          <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Charger 48V 3A" class="enquire-btn" target="_blank">Enquire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <h2 class="section-title">Contact <span>Us</span></h2>
+  <p class="section-subtitle">Get in touch for orders and inquiries</p>
+  
+  <div class="contact-box">
+    <div class="contact-item">
+      <div class="contact-icon">🏪</div>
+      <div>
+        <h4>Shop Name</h4>
+        <p>Arsh EV-Electric</p>
+      </div>
+    </div>
+    
+    <div class="contact-item">
+      <div class="contact-icon">👤</div>
+      <div>
+        <h4>Owner</h4>
+        <p>Khan Sahab</p>
+      </div>
+    </div>
+    
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div>
+        <h4>Phone Number</h4>
+        <a href="tel:+917210515929">+91 7210515929</a>
+      </div>
+    </div>
+    
+    <div class="contact-item">
+      <div class="contact-icon">📧</div>
+      <div>
+        <h4>Email</h4>
+        <a href="mailto:arshevelectric@gmail.com">arshevelectric@gmail.com</a>
+      </div>
+    </div>
+    
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div>
+        <h4>Address</h4>
+        <p>Karol Bagh, New Delhi - 110005</p>
+      </div>
+    </div>
+    
+    <div class="contact-item">
+      <div class="contact-icon">⏰</div>
+      <div>
+        <h4>Working Hours</h4>
+        <p>Mon - Sat: 10:00 AM - 8:00 PM</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">
+    <span>⚡</span>
+    <span style="color: #0a8f3c;">Arsh</span>
+    <span>EV-ELECTRIC</span>
+  </div>
+  <p>Your trusted partner for premium EV spare parts</p>
+  
+  <div class="social-links">
+    <a href="#" title="Facebook">📘</a>
+    <a href="#" title="Instagram">📸</a>
+    <a href="#" title="YouTube">🎬</a>
+    <a href="https://wa.me/917210515929" title="WhatsApp" target="_blank">💬</a>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2024 Arsh EV-Electric. All Rights Reserved. | Made with ❤️ in India</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/917210515929?text=Hi, I'm interested in EV spare parts" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Chat on WhatsApp"
+   aria-label="Chat on WhatsApp">
+  💬
+</a>
+
+<!-- Back to Top Button -->
+<a href="#home" class="back-to-top" id="backToTop" title="Back to Top" aria-label="Back to Top">↑</a>
+
+<!-- JavaScript for Slider -->
+<script>
+  // Slider Variables
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const progressBar = document.querySelector('.slider-progress-bar');
+  const currentCounter = document.querySelector('.slide-counter .current');
+  const totalSlides = slides.length;
+  const autoSlideInterval = 6000; // 6 seconds
+  let slideInterval;
+  let progressInterval;
+  let progress = 0;
+
+  // Initialize Slider
+  function initSlider() {
+    updateSlide();
+    startAutoSlide();
+  }
+
+  // Update Slide
+  function updateSlide() {
+    slides.forEach((slide, index) => {
+      slide.classList.remove('active');
+      dots[index].classList.remove('active');
+    });
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    
+    // Update counter
+    currentCounter.textContent = String(currentSlide + 1).padStart(2, '0');
+    
+    // Reset progress
+    progress = 0;
+    progressBar.style.width = '0%';
+  }
+
+  // Change Slide
+  function changeSlide(direction) {
+    currentSlide += direction;
+    
+    if (currentSlide >= totalSlides) {
+      currentSlide = 0;
+    } else if (currentSlide < 0) {
+      currentSlide = totalSlides - 1;
+    }
+    
+    updateSlide();
+    resetAutoSlide();
+  }
+
+  // Go to Specific Slide
+  function goToSlide(index) {
+    currentSlide = index;
+    updateSlide();
+    resetAutoSlide();
+  }
+
+  // Start Auto Slide
+  function startAutoSlide() {
+    // Progress bar animation
+    progressInterval = setInterval(() => {
+      progress += 100 / (autoSlideInterval / 100);
+      progressBar.style.width = progress + '%';
+    }, 100);
+
+    // Slide change
+    slideInterval = setInterval(() => {
+      currentSlide++;
+      if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+      }
+      updateSlide();
+    }, autoSlideInterval);
+  }
+
+  // Reset Auto Slide
+  function resetAutoSlide() {
+    clearInterval(slideInterval);
+    clearInterval(progressInterval);
+    progress = 0;
+    progressBar.style.width = '0%';
+    startAutoSlide();
+  }
+
+  // Pause on Hover
+  const sliderContainer = document.querySelector('.slider-container');
+  
+  sliderContainer.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+    clearInterval(progressInterval);
+  });
+
+  sliderContainer.addEventListener('mouseleave', () => {
+    resetAutoSlide();
+  });
+
+  // Touch/Swipe Support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  sliderContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  sliderContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (diff > swipeThreshold) {
+      changeSlide(1); // Swipe left - next
+    } else if (diff < -swipeThreshold) {
+      changeSlide(-1); // Swipe right - prev
+    }
+  }
+
+  // Keyboard Navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      changeSlide(-1);
+    } else if (e.key === 'ArrowRight') {
+      changeSlide(1);
+    }
+  });
+
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  });
+
+  // Close mobile menu when clicking a link
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('menu-toggle').checked = false;
+    });
+  });
+
+  // Initialize
+  initSlider();
+</script>
+
+</body>
+</html>

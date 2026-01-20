@@ -125,73 +125,200 @@
       user-select: none;
     }
 
-    /* ================= HERO ================= */
-    .hero {
-      min-height: 85vh;
-      background: linear-gradient(135deg, #0a8f3c 0%, #0f5f2f 50%, #073d1f 100%);
-      display: flex;
-      align-items: center;
-      padding: 0 80px;
-      color: white;
+   /* ================= HERO BANNER SLIDER ================= */
+    .hero-slider {
       position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      max-height: 900px;
       overflow: hidden;
+      margin-top: 70px;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
-      background: rgba(255,255,255,0.03);
-      border-radius: 50%;
-    }
-
-    .hero-content {
-      max-width: 650px;
-      animation: fadeUp 1.2s ease;
+    .slider-container {
       position: relative;
-      z-index: 1;
+      width: 100%;
+      height: 100%;
     }
 
-    .hero-badge {
+    /* Slides */
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Slide Background Image */
+    .slide-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1);
+      transition: transform 8s ease;
+    }
+
+    .slide.active .slide-bg {
+      transform: scale(1.1);
+    }
+
+    /* Slide Overlay */
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(10, 143, 60, 0.3) 100%
+      );
+    }
+
+    /* Slide Content */
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      width: 90%;
+      max-width: 900px;
+      z-index: 10;
+    }
+
+    .slide-badge {
       display: inline-block;
-      background: rgba(255,255,255,0.2);
-      padding: 8px 20px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 10px 25px;
       border-radius: 30px;
       font-size: 14px;
+      font-weight: 500;
       margin-bottom: 20px;
-      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease 0.3s;
     }
 
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-      line-height: 1.2;
+    .slide.active .slide-badge {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 30px;
+    .slide-title {
+      font-size: 60px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease 0.5s;
+    }
+
+    .slide.active .slide-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-title span {
+      color: #4ade80;
+    }
+
+    .slide-description {
+      font-size: 20px;
+      font-weight: 300;
+      margin-bottom: 35px;
       opacity: 0.9;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease 0.7s;
     }
 
-    .hero-buttons {
+    .slide.active .slide-description {
+      opacity: 0.9;
+      transform: translateY(0);
+    }
+
+    .slide-buttons {
       display: flex;
-      gap: 15px;
+      justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease 0.9s;
+    }
+
+    .slide.active .slide-buttons {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-primary {
+      background: #0a8f3c;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      border: 2px solid #0a8f3c;
+    }
+
+    .btn-primary:hover {
+      background: #087a32;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(10, 143, 60, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #0a8f3c;
+      border-color: white;
+      transform: translateY(-3px);
     }
 
     .btn {
@@ -1157,16 +1284,90 @@
   </div>
 </header>
 
-<!-- Hero Section -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-badge">🔋 Premium Quality EV Parts</div>
-    <h1>All Kind Of Electric Scooty<br>Spare Parts & Battery</h1>
-    <p>High quality EV parts at the best wholesale prices. Trusted by 500+ dealers across India.</p>
-    <div class="hero-buttons">
-      <a href="#products" class="btn">🛒 View Products</a>
-      <a href="https://wa.me/917210515929?text=Hi, I'm interested in EV parts" class="btn btn-outline" target="_blank">💬 WhatsApp Us</a>
+<!-- Hero Banner Slider -->
+<section class="hero-slider" id="home">
+  <div class="slider-container">
+    
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-bg" style="background-image: url('https://www.evdiecast.com/public/images/banner-4.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-decoration"></div>
+      <div class="slide-decoration-2"></div>
+      <div class="slide-content">
+        <div class="slide-badge">⚡ Premium Quality EV Parts</div>
+        <h1 class="slide-title">All Electric Scooty<br><span>Spare Parts</span> Available</h1>
+        <p class="slide-description">High quality motors, controllers, batteries and all EV accessories at the best wholesale prices in Delhi.</p>
+        <div class="slide-buttons">
+          <a href="#products" class="btn-primary">🛒 View Products</a>
+          <a href="https://wa.me/917210515929?text=Hi, I'm interested in EV spare parts" class="btn-secondary" target="_blank">💬 WhatsApp Us</a>
+        </div>
+      </div>
     </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('https://www.evdiecast.com/public/images/banner-5.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-decoration"></div>
+      <div class="slide-decoration-2"></div>
+      <div class="slide-content">
+        <div class="slide-badge">🔋 Long Life Batteries</div>
+        <h1 class="slide-title">High Capacity<br><span>Lithium Batteries</span></h1>
+        <p class="slide-description">Premium quality lithium and lead-acid batteries with 2-year warranty. Fast charging, long range performance.</p>
+        <div class="slide-buttons">
+          <a href="#products" class="btn-primary">🔋 Shop Batteries</a>
+          <a href="tel:+917210515929" class="btn-secondary">📞 Call Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('https://www.evdiecast.com/public/images/banner-6.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-decoration"></div>
+      <div class="slide-decoration-2"></div>
+      <div class="slide-content">
+        <div class="slide-badge">💰 Best Wholesale Prices</div>
+        <h1 class="slide-title">Dealer & Mechanic<br><span>Special Rates</span></h1>
+        <p class="slide-description">Become our dealer partner and get exclusive wholesale prices. Bulk orders welcome with free shipping across India.</p>
+        <div class="slide-buttons">
+          <a href="#contact" class="btn-primary">🤝 Become Dealer</a>
+          <a href="https://wa.me/917210515929?text=Hi, I want to become a dealer" class="btn-secondary" target="_blank">📋 Get Price List</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="slider-nav prev" onclick="changeSlide(-1)">❮</div>
+    <div class="slider-nav next" onclick="changeSlide(1)">❯</div>
+
+    <!-- Dots -->
+    <div class="slider-dots">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+      <span class="current">01</span>
+      <span>/</span>
+      <span class="total">03</span>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="slider-progress">
+      <div class="slider-progress-bar"></div>
+    </div>
+
+    <!-- Scroll Down -->
+    <a href="#features" class="scroll-down">
+      <span>Scroll Down</span>
+      <div class="scroll-down-icon"></div>
+    </a>
+
   </div>
 </section>
 
@@ -1276,7 +1477,7 @@
         <h3>Hub Motor 12 Inch</h3>
         <p>High torque BLDC motor, 500W</p>
         <div class="product-footer">
-          <span class="price">₹7,500 <small>₹8,999</small></span>
+          <span class="price">₹6,500 <small>₹8,999</small></span>
           <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Hub Motor 12 Inch" class="enquire-btn" target="_blank">Enquire</a>
         </div>
       </div>
@@ -1285,16 +1486,16 @@
     <div class="product-card fade-in">
       <span class="product-badge new">New</span>
       <div class="product-image">
-        <img src="https://m.media-amazon.com/images/I/41TqB1qwM4L.jpg" 
+                        <img src="https://www.chilweebattery.com/uploads/9560/page/maintenance-free-lead-acid-electric-vehicle-b0a0ca.jpg" 
              alt="EV Lithium Battery" 
              loading="lazy"
              onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=EV+Battery'">
       </div>
       <div class="product-info">
-        <h3>Lithium Battery 60V 30Ah</h3>
+        <h3>Lead Acid Battery</h3>
         <p>Long life, fast charging</p>
         <div class="product-footer">
-          <span class="price">₹18,000 <small>₹22,000</small></span>
+          <span class="price">₹2400/pc <small>₹2500/pc</small></span>
           <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Lithium Battery 60V 30Ah" class="enquire-btn" target="_blank">Enquire</a>
         </div>
       </div>
@@ -1302,7 +1503,8 @@
 
     <div class="product-card fade-in">
       <div class="product-image">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2025/11/560672448/JE/NR/YE/151863905/28-1000x1000.png" 
+                <img src="https://m.media-amazon.com/images/I/41TqB1qwM4L.jpg" 
+
              alt="EV Controller" 
              loading="lazy"
              onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=Controller'">
@@ -1311,7 +1513,7 @@
         <h3>Controller 60V 35A</h3>
         <p>Sine wave, heavy duty</p>
         <div class="product-footer">
-          <span class="price">₹3,200 <small>₹3,999</small></span>
+          <span class="price">₹1600/pc <small>₹1600/pc</small></span>
           <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Controller 60V 35A" class="enquire-btn" target="_blank">Enquire</a>
         </div>
       </div>
@@ -1325,10 +1527,10 @@
              onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=Charger'">
       </div>
       <div class="product-info">
-        <h3>Charger 48V 3A</h3>
+        <h3>Charger 48V 4A</h3>
         <p>Lead acid compatible</p>
         <div class="product-footer">
-          <span class="price">₹850 <small>₹1,100</small></span>
+          <span class="price">₹1150 <small>₹1150</small></span>
           <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Charger 48V 3A" class="enquire-btn" target="_blank">Enquire</a>
         </div>
       </div>
@@ -1337,7 +1539,7 @@
     <div class="product-card fade-in">
       <span class="product-badge">Best</span>
       <div class="product-image">
-        <img src="https://m.media-amazon.com/images/I/61KJz3aUZfL._AC_UF1000,1000_QL80_.jpg" 
+        <img src="https://www.lionev.in/cdn/shop/files/WhatsApp_Image_2023-07-12_at_12.37.04_PM-removebg-preview_1024x1024.png?v=1689238911" 
              alt="Disc Brake Assembly" 
              loading="lazy"
              onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=Disc+Brake'">
@@ -1346,7 +1548,7 @@
         <h3>Disc Brake Assembly</h3>
         <p>Complete front brake set</p>
         <div class="product-footer">
-          <span class="price">₹1,200 <small>₹1,500</small></span>
+          <span class="price">₹900/pc <small>₹900</small></span>
           <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Disc Brake Assembly" class="enquire-btn" target="_blank">Enquire</a>
         </div>
       </div>
@@ -1354,7 +1556,7 @@
 
     <div class="product-card fade-in">
       <div class="product-image">
-        <img src="https://m.media-amazon.com/images/I/71UvPVeMG7L._AC_UF1000,1000_QL80_.jpg" 
+        <img src="https://m.media-amazon.com/images/I/71gEo+ft9wL._AC_UF1000,1000_QL80_.jpg" 
              alt="LED Headlight" 
              loading="lazy"
              onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=Headlight'">
@@ -1363,7 +1565,7 @@
         <h3>LED Headlight Set</h3>
         <p>Bright, energy efficient</p>
         <div class="product-footer">
-          <span class="price">₹650 <small>₹850</small></span>
+          <span class="price">₹60/pc <small>₹60</small></span>
           <a href="https://wa.me/917210515929?text=Hi, I want to enquire about LED Headlight Set" class="enquire-btn" target="_blank">Enquire</a>
         </div>
       </div>
@@ -1371,7 +1573,7 @@
 
     <div class="product-card fade-in">
       <div class="product-image">
-        <img src="https://m.media-amazon.com/images/I/61P7bqVJPpL._AC_UF1000,1000_QL80_.jpg" 
+        <img src="https://m.media-amazon.com/images/I/61SNG7uwe3L._AC_UF894,1000_QL80_.jpg" 
              alt="Throttle Handle" 
              loading="lazy"
              onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=Throttle'">
@@ -1380,7 +1582,7 @@
         <h3>Throttle Handle</h3>
         <p>With Hall sensor</p>
         <div class="product-footer">
-          <span class="price">₹450 <small>₹599</small></span>
+          <span class="price">₹100/pc <small>₹100/pc</small></span>
           <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Throttle Handle" class="enquire-btn" target="_blank">Enquire</a>
         </div>
       </div>
@@ -1389,7 +1591,7 @@
     <div class="product-card fade-in">
       <span class="product-badge new">New</span>
       <div class="product-image">
-        <img src="https://m.media-amazon.com/images/I/51dBVdQvz1L._AC_UF1000,1000_QL80_.jpg" 
+        <img src="https://m.media-amazon.com/images/I/41HW8FByGJL._AC_UF1000,1000_QL80_.jpg" 
              alt="Display Meter" 
              loading="lazy"
              onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/333333?text=Display+Meter'">
@@ -1398,7 +1600,7 @@
         <h3>Digital Display Meter</h3>
         <p>LCD speedometer, battery</p>
         <div class="product-footer">
-          <span class="price">₹1,100 <small>₹1,400</small></span>
+          <span class="price">₹450/pcs <small>₹450/pc</small></span>
           <a href="https://wa.me/917210515929?text=Hi, I want to enquire about Digital Display Meter" class="enquire-btn" target="_blank">Enquire</a>
         </div>
       </div>
