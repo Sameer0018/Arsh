@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arsh EV-Electric | Electric Scooty Spare Parts</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="logo">
+      <span class="brand-green">Arsh</span> <span class="brand-dark">EV-ELECTRIC</span>
+    </div>
+
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="phone">📞 7210515929</div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>All Kind Of Electric Scooty<br>Spare Parts & Battery</h1>
+      <p>High quality EV parts at the best wholesale prices</p>
+      <a href="#products" class="btn">View Products</a>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>
+      <strong>Arsh EV-Electric</strong> is a trusted supplier of electric scooty spare parts and batteries.
+      We deal in controllers, motors, batteries, brake systems, throttles and all EV electrical accessories.
+      Our focus is on quality, reliability, and fair pricing.
+    </p>
+  </section>
+
+  <!-- ================= PRODUCTS ================= -->
+  <section class="products" id="products">
+    <h2>Our Products</h2>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <h3>Hub Motor</h3>
+        <p>High torque EV motor</p>
+        <span class="price">₹7,500</span>
+      </div>
+
+      <div class="product-card">
+        <h3>EV Battery (Lithium)</h3>
+        <p>Long life lithium battery</p>
+        <span class="price">₹18,000</span>
+      </div>
+
+      <div class="product-card">
+        <h3>Controller</h3>
+        <p>Heavy duty EV controller</p>
+        <span class="price">₹3,200</span>
+      </div>
+
+      <div class="product-card">
+        <h3>Brake Set</h3>
+        <p>Front & rear brake system</p>
+        <span class="price">₹1,200</span>
+      </div>
+
+      <div class="product-card">
+        <h3>Throttle</h3>
+        <p>Smooth acceleration throttle</p>
+        <span class="price">₹450</span>
+      </div>
+
+      <div class="product-card">
+        <h3>Charger</h3>
+        <p>Fast EV charger</p>
+        <span class="price">₹1,800</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+
+    <div class="contact-box">
+      <p><strong>Shop Name:</strong> Arsh EV-Electric</p>
+      <p><strong>Owner:</strong> Khan Sahab</p>
+      <p><strong>Phone:</strong> 7210515929</p>
+      <p><strong>Address:</strong>2052/39 Naiwala,karol bagh, New Delhi -110005</p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <p>© 2026 Arsh EV-Electric. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f7f7f7;
+  color: #222;
+}
+
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.brand-green {
+  color: #0a8f3c;
+}
+
+.brand-dark {
+  color: #111;
+}
+
+.nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #0a8f3c;
+  transition: 0.3s;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.phone {
+  font-weight: 600;
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 85vh;
+  background: linear-gradient(to right, #0a8f3c, #0f5f2f);
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  color: white;
+}
+
+.hero-content {
+  max-width: 600px;
+  animation: fadeUp 1.2s ease;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background: white;
+  color: #0a8f3c;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 80px 60px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #0a8f3c;
+}
+
+/* ================= ABOUT ================= */
+.about p {
+  max-width: 900px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ================= PRODUCTS ================= */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.product-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.4s;
+  animation: fadeUp 1s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.product-card h3 {
+  margin-bottom: 8px;
+}
+
+.price {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #0a8f3c;
+  font-size: 18px;
+}
+
+/* ================= CONTACT ================= */
+.contact-box {
+  background: white;
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.contact-box p {
+  margin: 10px 0;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
